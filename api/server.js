@@ -16,10 +16,22 @@ mongoose
     .catch(console.error);
 
 import { Todo } from './models/Todo.js';
+//
 
+// ROUTES
 app.get('/todos', async (req, res) => {
     const todos = await Todo.find();
     res.json(todos);
+});
+
+app.post('/todos/new', (req, res) => {
+    const todo = new Todo({
+        text: req.body.text,
+    });
+
+    todo.save();
+
+    res.json(todo);
 });
 //
 
