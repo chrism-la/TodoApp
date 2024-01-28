@@ -24,12 +24,12 @@ app.get('/todos', async (req, res) => {
     res.json(todos);
 });
 
-app.post('/todos/new', (req, res) => {
+app.post('/todos/new', async (req, res) => {
     const todo = new Todo({
         text: req.body.text,
     });
 
-    todo.save();
+    await todo.save();
 
     res.json(todo);
 });
