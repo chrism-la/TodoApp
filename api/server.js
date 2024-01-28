@@ -15,7 +15,7 @@ mongoose
     .then(() => console.log('Connected to DB'))
     .catch(console.error);
 
-import { Todo } from './models/Todo';
+import { Todo } from './models/Todo.js';
 
 app.get('/todos', async (req, res) => {
     const todos = await Todo.find();
