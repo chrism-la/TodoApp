@@ -7,3 +7,6 @@ Content-Type: application/json
 {
   "text": "Get the Milk"
 }
+
+###
+DELETE http://localhost:3001/todo/delete/65b5c8e4816f8641a611e242
