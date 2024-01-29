@@ -39,6 +39,16 @@ app.delete('/todo/delete/:id', async (req, res) => {
 
     res.json(result);
 });
+
+app.put('/todo/complete/:id', async (req, res) => {
+    const todo = await Todo.findById(req.params.id);
+
+    todo.complete = !todo.complete;
+
+    todo.save();
+
+    res.json(todo);
+});
 //
 
 // SERVER/PORT
