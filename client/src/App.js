@@ -9,6 +9,8 @@ function App() {
 
     useEffect(() => {
         GetTodos();
+
+        console.log(todos);
     }, []);
 
     const GetTodos = () => {
@@ -23,21 +25,13 @@ function App() {
             <h1>Welcome, Chris</h1>
             <h4>Your Tasks</h4>
             <div className="todos">
-                <div className="todo">
-                    <div className="checkbox"></div>
-                    <div className="text">Get the Bread</div>
-                    <div className="delete-todo">x</div>
-                </div>
-                <div className="todo is-complete">
-                    <div className="checkbox"></div>
-                    <div className="text">Get the Milk</div>
-                    <div className="delete-todo">x</div>
-                </div>
-                <div className="todo is-complete">
-                    <div className="checkbox"></div>
-                    <div className="text">Get the Milk</div>
-                    <div className="delete-todo">x</div>
-                </div>
+                {todos.map((todo) => (
+                    <div className="todo" key={todo._id}>
+                        <div className="checkbox"></div>
+                        <div className="text">{todo.text}</div>
+                        <div className="delete-todo">x</div>
+                    </div>
+                ))}
             </div>
         </div>
     );
