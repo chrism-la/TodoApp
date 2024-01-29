@@ -12,7 +12,10 @@ function App() {
     }, []);
 
     const GetTodos = () => {
-        fetch(API_BASE + '/todos');
+        fetch(API_BASE + '/todos')
+            .then((res) => res.json())
+            .then((data) => setTodos(data))
+            .catch((err) => console.error('Error:', err));
     };
 
     return (
