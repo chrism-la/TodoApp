@@ -20,6 +20,20 @@ function App() {
             .catch((err) => console.error('Error:', err));
     };
 
+    const completeTodo = async (id) => {
+        const data = fetch(API_BASE + '/todo/complete/' + id).then((res) => res.json());
+
+        setTodos((todos) =>
+            todos.map((todo) => {
+                if (todo._id === data._id) {
+                    todo.complete = data.complete;
+                }
+
+                return todo;
+            })
+        );
+    };
+
     return (
         <div className="App">
             <h1>Welcome, Chris</h1>
